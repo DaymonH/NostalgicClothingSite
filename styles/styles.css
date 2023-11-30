@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  color: var(--text-color-light);
 }
 /* Variables */
 :root {
@@ -11,24 +12,27 @@
   --secondary-color2: #111111;
   --tertiary-color: #202a36;
   --accent-color: #2b2b2b;
-  --text-color: #edfcff;
+  --text-color-light: #edfcff;
+  --text-color-dark: #000000;
 }
 body {
   background-color: var(--primary-color);
+  margin-top: 10vh;
 }
 /* Header */
 header {
   position: absolute;
   top: 0;
+
   width: 100%;
-  height: 5vh;
+  height: 10vh;
   display: flex;
   flex-direction: row;
-  background-color: var(--accent-color);
+  background-color: var(--secondary-color);
 }
 .header_list {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   list-style: none;
@@ -40,11 +44,54 @@ header {
   padding: 2px;
   margin-left: 20px;
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--text-color-dark);
 }
+/* Shop By collections section */
+/* Grid container styles */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+/* Grid item styles */
+.grid-item {
+  position: relative;
+  overflow: hidden;
+}
+/* Image container styles */
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+/* Image styles */
+.image-container img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+/* Hover effect for the image */
+.grid-item:hover .image-container img {
+  transform: scale(1.05);
+  filter: grayscale(50%);
+}
+/* Grid content styles */
+.grid-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  padding: 10px;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none; /* Prevents hover from interfering with image */
+  opacity: 1; /* Always visible */
+}
+
 /* footer */
 footer {
-  background-color: lightcoral;
+  height: 10vh;
+  background-color: var(--secondary-color2);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
